@@ -1,24 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oaH-0T-A8B">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Unsplash_with_storyboard_tutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEy-So-KVa" userLabel="Container">
+                                <rect key="frame" x="20" y="222" width="374" height="400"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-xw-pMD">
+                                        <rect key="frame" x="112" y="8" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="gIJ-pE-EKP"/>
+                                            <constraint firstAttribute="width" constant="150" id="x85-UJ-03q"/>
+                                        </constraints>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gda-hM-TiD">
+                                        <rect key="frame" x="112" y="174" width="150" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="GI7-Cs-YDO"/>
+                                    <constraint firstItem="4Zw-xw-pMD" firstAttribute="trailing" secondItem="gda-hM-TiD" secondAttribute="trailing" id="UpQ-6a-ce9"/>
+                                    <constraint firstItem="gda-hM-TiD" firstAttribute="leading" secondItem="4Zw-xw-pMD" secondAttribute="leading" id="Y2a-h4-2jo"/>
+                                    <constraint firstItem="4Zw-xw-pMD" firstAttribute="centerX" secondItem="AEy-So-KVa" secondAttribute="centerX" id="baC-VB-WJ2"/>
+                                    <constraint firstItem="gda-hM-TiD" firstAttribute="top" secondItem="4Zw-xw-pMD" secondAttribute="bottom" constant="16" id="lcx-p9-cub"/>
+                                    <constraint firstItem="4Zw-xw-pMD" firstAttribute="top" secondItem="AEy-So-KVa" secondAttribute="top" constant="8" id="nFB-Wp-7hw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AEy-So-KVa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="82" id="Bkk-3E-IRX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AEy-So-KVa" secondAttribute="trailing" constant="20" id="MHz-bR-gFY"/>
+                            <constraint firstItem="AEy-So-KVa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="shr-jD-mWB"/>
+                            <constraint firstItem="AEy-So-KVa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wnf-qX-aNs"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="D54-jY-JQP"/>
+                    <connections>
+                        <segue destination="vom-Z6-hl5" kind="show" identifier="goToPhotoCollectionVC" id="Eiy-Ia-xWQ"/>
+                        <segue destination="Sbw-jQ-dJZ" kind="show" identifier="goToUserListVC" id="gHW-pd-x8Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+        </scene>
+        <!--Photo CollectionVC-->
+        <scene sceneID="fji-Rr-FOc">
+            <objects>
+                <viewController id="vom-Z6-hl5" customClass="PhotoCollectionVC" customModule="Unsplash_with_storyboard_tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lT1-zY-fwV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="seg-C4-bEQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FhM-eY-hPR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2R-WO-rBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="571"/>
+        </scene>
+        <!--User ListVC-->
+        <scene sceneID="Kpg-FX-3GY">
+            <objects>
+                <viewController id="Sbw-jQ-dJZ" customClass="UserListVC" customModule="Unsplash_with_storyboard_tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PcV-Lm-csk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="w9H-YI-39e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mm4-zo-yCj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ud-8w-ITL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671" y="-91"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Je0-Ce-nw7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oaH-0T-A8B" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="H7i-m6-33v">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YUF-lT-rfg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrQ-sA-Mag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="88.392857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="smiling" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
