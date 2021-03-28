@@ -29,17 +29,49 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gda-hM-TiD">
                                         <rect key="frame" x="112" y="174" width="150" height="32"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="" image="photo" catalog="system"/>
+                                            <segment title="" image=" "/>
                                         </segments>
+                                        <connections>
+                                            <action selector="searchFileterValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bj7-0A-QcR"/>
+                                        </connections>
                                     </segmentedControl>
+                                    <searchBar contentMode="redraw" placeholder="사진 키워드 입력" translatesAutoresizingMaskIntoConstraints="NO" id="7UO-Bp-RB7">
+                                        <rect key="frame" x="0.0" y="223" width="374" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-48-zqr">
+                                        <rect key="frame" x="147" y="299" width="80" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="OWM-85-3vt"/>
+                                            <constraint firstAttribute="width" constant="80" id="llB-bu-633"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="검색"/>
+                                        <connections>
+                                            <action selector="onSearchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iJG-5g-UNn"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7qx-tX-Ndd">
+                                        <rect key="frame" x="177" y="309" width="20" height="20"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="7qx-tX-Ndd" firstAttribute="centerX" secondItem="dLh-48-zqr" secondAttribute="centerX" id="3EJ-RS-0WP"/>
+                                    <constraint firstItem="7qx-tX-Ndd" firstAttribute="centerY" secondItem="dLh-48-zqr" secondAttribute="centerY" id="4Bt-J0-kmD"/>
                                     <constraint firstAttribute="height" constant="400" id="GI7-Cs-YDO"/>
+                                    <constraint firstItem="dLh-48-zqr" firstAttribute="top" secondItem="7UO-Bp-RB7" secondAttribute="bottom" constant="20" id="H4j-iJ-gfu"/>
+                                    <constraint firstAttribute="trailing" secondItem="7UO-Bp-RB7" secondAttribute="trailing" id="Nej-wH-6Af"/>
                                     <constraint firstItem="4Zw-xw-pMD" firstAttribute="trailing" secondItem="gda-hM-TiD" secondAttribute="trailing" id="UpQ-6a-ce9"/>
                                     <constraint firstItem="gda-hM-TiD" firstAttribute="leading" secondItem="4Zw-xw-pMD" secondAttribute="leading" id="Y2a-h4-2jo"/>
+                                    <constraint firstItem="7UO-Bp-RB7" firstAttribute="leading" secondItem="AEy-So-KVa" secondAttribute="leading" id="Zqs-Le-tnK"/>
                                     <constraint firstItem="4Zw-xw-pMD" firstAttribute="centerX" secondItem="AEy-So-KVa" secondAttribute="centerX" id="baC-VB-WJ2"/>
+                                    <constraint firstItem="7UO-Bp-RB7" firstAttribute="top" secondItem="gda-hM-TiD" secondAttribute="bottom" constant="18" id="cxE-v9-kWI"/>
+                                    <constraint firstItem="dLh-48-zqr" firstAttribute="centerX" secondItem="AEy-So-KVa" secondAttribute="centerX" id="ikq-0V-fJk"/>
                                     <constraint firstItem="gda-hM-TiD" firstAttribute="top" secondItem="4Zw-xw-pMD" secondAttribute="bottom" constant="16" id="lcx-p9-cub"/>
                                     <constraint firstItem="4Zw-xw-pMD" firstAttribute="top" secondItem="AEy-So-KVa" secondAttribute="top" constant="8" id="nFB-Wp-7hw"/>
                                 </constraints>
@@ -56,6 +88,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="D54-jY-JQP"/>
                     <connections>
+                        <outlet property="searchBar" destination="7UO-Bp-RB7" id="zKs-FK-KAF"/>
+                        <outlet property="searchButton" destination="dLh-48-zqr" id="9FK-rq-J8Z"/>
+                        <outlet property="searchFilterSegment" destination="gda-hM-TiD" id="q07-jO-rzW"/>
+                        <outlet property="searchIndicator" destination="7qx-tX-Ndd" id="Skq-eW-D7h"/>
                         <segue destination="vom-Z6-hl5" kind="show" identifier="goToPhotoCollectionVC" id="Eiy-Ia-xWQ"/>
                         <segue destination="Sbw-jQ-dJZ" kind="show" identifier="goToUserListVC" id="gHW-pd-x8Q"/>
                     </connections>
@@ -116,12 +152,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name=" " width="128" height="128"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="smiling" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
