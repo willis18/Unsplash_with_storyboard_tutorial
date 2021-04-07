@@ -30,7 +30,7 @@
                                         <rect key="frame" x="112" y="174" width="150" height="32"/>
                                         <segments>
                                             <segment title="" image="photo" catalog="system"/>
-                                            <segment title="" image=" "/>
+                                            <segment title="" image="person.fill" catalog="system"/>
                                         </segments>
                                         <connections>
                                             <action selector="searchFileterValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bj7-0A-QcR"/>
@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="223" width="374" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-48-zqr">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-48-zqr">
                                         <rect key="frame" x="147" y="299" width="80" height="40"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                         <constraints>
@@ -152,7 +152,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" " width="128" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="smiling" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
