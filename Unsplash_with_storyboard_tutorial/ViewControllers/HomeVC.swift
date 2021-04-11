@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast_Swift
+import Alamofire
 
 class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate {
 
@@ -122,8 +123,15 @@ class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate
     }
     
     @IBAction func onSearchButtonClicked(_ sender: UIButton) {
+        let url = API.BASE_URL + "search/photos"
+        guard let userInput = self.searchBar.text else {return}
+        //키, 벨류 딕셔너리
+        let quaryParam =  ["quary" : userInput, "client_id" : API.CLIENT_ID]
+        AF.request(url, method: .get, parameters: quaryParam).responseJSON(completionHandler: {
+            respons in debugPrint(respons)
+        })
         //화면으로 이동
-        pushVC()
+//        pushVC()
     }
     
     //MARK: - UISearchBar Delegate methods
