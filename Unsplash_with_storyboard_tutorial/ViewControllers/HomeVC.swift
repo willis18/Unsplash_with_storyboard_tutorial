@@ -127,9 +127,17 @@ class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate
         guard let userInput = self.searchBar.text else {return}
         //키, 벨류 딕셔너리
         let quaryParam =  ["quary" : userInput, "client_id" : API.CLIENT_ID]
-        AF.request(url, method: .get, parameters: quaryParam).responseJSON(completionHandler: {
-            respons in debugPrint(respons)
-        })
+//        AF.request(url, method: .get, parameters: quaryParam).responseJSON(completionHandler: {
+//            respons in debugPrint(respons)
+//        })
+        MyAlamofireManager
+            .shared
+            .session
+            .request(url)
+            .responseJSON(completionHandler: {
+                response in debugPrint(response)
+                
+            })
         //화면으로 이동
 //        pushVC()
     }
