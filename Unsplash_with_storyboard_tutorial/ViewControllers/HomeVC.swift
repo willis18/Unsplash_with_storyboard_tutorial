@@ -9,7 +9,7 @@ import UIKit
 import Toast_Swift
 import Alamofire
 
-class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate {
+class HomeVC: BaseVC, UISearchBarDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet var searchFilterSegment: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
@@ -123,21 +123,38 @@ class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate
     }
     
     @IBAction func onSearchButtonClicked(_ sender: UIButton) {
-        let url = API.BASE_URL + "search/photos"
+//        let url = API.BASE_URL + "search/photos"
         guard let userInput = self.searchBar.text else {return}
         //키, 벨류 딕셔너리
-        let quaryParam =  ["quary" : userInput, "client_id" : API.CLIENT_ID]
-//        AF.request(url, method: .get, parameters: quaryParam).responseJSON(completionHandler: {
+//        let queryParam =  ["query" : userInput, "client_id" : API.CLIENT_ID]
+//
+//        AF.request(url, method: .get, parameters: queryParam).responseJSON(completionHandler: {
 //            respons in debugPrint(respons)
 //        })
-        MyAlamofireManager
-            .shared
-            .session
-            .request(url)
-            .responseJSON(completionHandler: {
-                response in debugPrint(response)
-                
-            })
+        
+        var urlToCall : URLRequestConvertible?
+        
+        switch searchFilterSegment.selectedSegmentIndex {
+        case 0:
+            urlToCall = MySearchRouter.searchPhotos(term: userInput )
+        case 1:
+            urlToCall = MySearchRouter.searchUsers(term: userInput )
+        default:
+            print("default")
+        }
+        
+        if let urlConvertible = urlToCall {
+            MyAlamofireManager
+                .shared
+                .session
+                .request(urlConvertible)
+                .validate(statusCode: 200..<401)
+                .responseJSON(completionHandler: {
+                    response in debugPrint(response)
+                    
+                })
+        }
+        
         //화면으로 이동
 //        pushVC()
     }

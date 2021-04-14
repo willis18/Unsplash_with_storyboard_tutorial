@@ -17,11 +17,11 @@ final class MyAlamofireManager{
             BaseInterceptor()
         ])
     // 로거 설정
-//    let monitors
+    let monitors = [MyLogger(), MyApiStatusLogger()] as [EventMonitor]
     //세션 설정
     var session : Session
     private init(){
-        session = Session(interceptor: interseptors)
+        session = Session(interceptor: interseptors, eventMonitors: monitors)
     }
     
 }

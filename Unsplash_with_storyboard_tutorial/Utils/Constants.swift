@@ -17,3 +17,9 @@ enum API{
     static let BASE_URL : String = "https://api.unsplash.com/"
     static let CLIENT_ID : String = "YyJdVt0NH94u3PwARi9SCgMZJzzurOqJ0pzcciSPgHY"
 }
+
+enum NOTIFICATION{
+    enum API{
+        static let AUTH_FAIL = "authentication_fail"
+    }
+}

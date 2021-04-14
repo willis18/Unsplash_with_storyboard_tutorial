@@ -16,18 +16,25 @@ class BaseInterceptor : RequestInterceptor{
         request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Accept")
         
         //공통 파라미터 추가
-        var dictionary = [String:String]()
-        dictionary.updateValue(API.CLIENT_ID, forKey: "client_id")
-        do{
-            request = try URLEncodedFormParameterEncoder().encode(dictionary, into: request)
-        }catch{
-            print(error)
-        }
-        
+//        var dictionary = [String:String]()
+//        dictionary.updateValue(API.CLIENT_ID, forKey: "client_id")
+//        do{
+//            request = try URLEncodedFormParameterEncoder().encode(dictionary, into: request)
+//        }catch{
+//            print(error)
+//        }
+//        
         completion(.success(request))
     }
     
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        guard let statusCode = request.response?.statusCode else {
+            completion(.doNotRetry)
+            return
+        }
+        
+        let data = ["statusCode" : statusCode]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATION.API.AUTH_FAIL), object: nil, userInfo: data)
         completion(.doNotRetry)
     }
 }
