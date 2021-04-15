@@ -136,24 +136,25 @@ class HomeVC: BaseVC, UISearchBarDelegate, UIGestureRecognizerDelegate {
         
         switch searchFilterSegment.selectedSegmentIndex {
         case 0:
-            urlToCall = MySearchRouter.searchPhotos(term: userInput )
+//            urlToCall = MySearchRouter.searchPhotos(term: userInput )
+            MyAlamofireManager.shared.getPhotos(searchTerm: userInput, completion: { result in})
         case 1:
             urlToCall = MySearchRouter.searchUsers(term: userInput )
         default:
             print("default")
         }
         
-        if let urlConvertible = urlToCall {
-            MyAlamofireManager
-                .shared
-                .session
-                .request(urlConvertible)
-                .validate(statusCode: 200..<401)
-                .responseJSON(completionHandler: {
-                    response in debugPrint(response)
-                    
-                })
-        }
+//        if let urlConvertible = urlToCall {
+//            MyAlamofireManager
+//                .shared
+//                .session
+//                .request(urlConvertible)
+//                .validate(statusCode: 200..<401)
+//                .responseJSON(completionHandler: {
+//                    response in debugPrint(response)
+//
+//                })
+//        }
         
         //화면으로 이동
 //        pushVC()

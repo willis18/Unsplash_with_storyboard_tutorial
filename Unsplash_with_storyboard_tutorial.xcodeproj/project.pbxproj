@@ -22,6 +22,8 @@
 		1A273C5A2624912100E50793 /* MyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A273C592624912100E50793 /* MyLogger.swift */; };
 		1A273C5D2625DD3D00E50793 /* MyApiStatusLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A273C5C2625DD3D00E50793 /* MyApiStatusLogger.swift */; };
 		1A273C602626293100E50793 /* MySearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A273C5F2626293100E50793 /* MySearchRouter.swift */; };
+		1A273C642628286900E50793 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A273C632628286900E50793 /* Photo.swift */; };
+		1A273C672628290000E50793 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A273C662628290000E50793 /* MyError.swift */; };
 		6D8A59FA8725AE85C517DEB7 /* Pods_Unsplash_with_storyboard_tutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E95F53074B22D2A88409BA /* Pods_Unsplash_with_storyboard_tutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		1A273C592624912100E50793 /* MyLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLogger.swift; sourceTree = "<group>"; };
 		1A273C5C2625DD3D00E50793 /* MyApiStatusLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApiStatusLogger.swift; sourceTree = "<group>"; };
 		1A273C5F2626293100E50793 /* MySearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySearchRouter.swift; sourceTree = "<group>"; };
+		1A273C632628286900E50793 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		1A273C662628290000E50793 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		28A8FB4C9476FABE7E5F555D /* Pods-Unsplash_with_storyboard_tutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash_with_storyboard_tutorial.release.xcconfig"; path = "Target Support Files/Pods-Unsplash_with_storyboard_tutorial/Pods-Unsplash_with_storyboard_tutorial.release.xcconfig"; sourceTree = "<group>"; };
 		50FD6EE244F02CD8C475FAF5 /* Pods-Unsplash_with_storyboard_tutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash_with_storyboard_tutorial.debug.xcconfig"; path = "Target Support Files/Pods-Unsplash_with_storyboard_tutorial/Pods-Unsplash_with_storyboard_tutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		89E95F53074B22D2A88409BA /* Pods_Unsplash_with_storyboard_tutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unsplash_with_storyboard_tutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,7 @@
 		1A273C24260CBFEA00E50793 /* Unsplash_with_storyboard_tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				1A273C622628284D00E50793 /* Model */,
 				1A273C522623225A00E50793 /* API */,
 				1A273C47261A07B100E50793 /* Utils */,
 				1A273C25260CBFEA00E50793 /* AppDelegate.swift */,
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				1A273C48261A07C700E50793 /* Constants.swift */,
+				1A273C662628290000E50793 /* MyError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -131,6 +137,14 @@
 				1A273C5F2626293100E50793 /* MySearchRouter.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		1A273C622628284D00E50793 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A273C632628286900E50793 /* Photo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6C24CDC049EAB52C8CA39706 /* Pods */ = {
@@ -262,7 +276,9 @@
 				1A273C28260CBFEA00E50793 /* SceneDelegate.swift in Sources */,
 				1A273C602626293100E50793 /* MySearchRouter.swift in Sources */,
 				1A273C3C260CC4EA00E50793 /* UserListVC.swift in Sources */,
+				1A273C642628286900E50793 /* Photo.swift in Sources */,
 				1A273C542623228100E50793 /* MyAlamofireManager.swift in Sources */,
+				1A273C672628290000E50793 /* MyError.swift in Sources */,
 				1A273C5D2625DD3D00E50793 /* MyApiStatusLogger.swift in Sources */,
 				1A273C3F260CC54E00E50793 /* PhotoCollectionVC.swift in Sources */,
 				1A273C5A2624912100E50793 /* MyLogger.swift in Sources */,
