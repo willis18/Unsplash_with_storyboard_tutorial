@@ -42,9 +42,25 @@ final class MyAlamofireManager{
                 
                 for(index, subJson): (String, JSON) in jsonArray{
                     //데이터 파싱
-                    let photoItem = Photo(thumbnail: <#T##String#>, username: <#T##String#>, likesCount: <#T##Int#>, createdAt: <#T##String#>)
+//                    let thumbnail = subJson["urls"]["thumb"].string ?? ""
+//                    let username = subJson["user"]["username"].string ?? ""
+//                    let likesCount = subJson["likes"].intValue ?? 0
+//                    let createdAt = subJson["created_at"].string ?? ""
+                    guard let thumbnail = subJson["urls"]["thumb"].string,
+                          let username = subJson["user"]["username"].string,
+                          let createdAt = subJson["created_at"].string else {return}
+                    let likesCount = subJson["likes"].intValue
+                    
+                    let photoItem = Photo(thumbnail: thumbnail, username: username, likesCount: likesCount, createdAt: createdAt)
+                    
                     //배열에 넣고
-                     
+                    photos.append(photoItem)
+                }
+                
+                if photos.count > 0{
+                    completion(.success(photos))
+                }else{
+                    completion(.failure(.noContent))
                 }
                 
             })
