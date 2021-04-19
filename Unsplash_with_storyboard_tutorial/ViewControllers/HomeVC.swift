@@ -137,13 +137,17 @@ class HomeVC: BaseVC, UISearchBarDelegate, UIGestureRecognizerDelegate {
         switch searchFilterSegment.selectedSegmentIndex {
         case 0:
 //            urlToCall = MySearchRouter.searchPhotos(term: userInput )
-            MyAlamofireManager.shared.getPhotos(searchTerm: userInput, completion: { result in
+            MyAlamofireManager.shared.getPhotos(searchTerm: userInput, completion: { [weak self ] result in
+                // self는 메모리를 잡아먹는데 weak를 통해 메모리를 계속 잡는 것을 방지
+                guard let self = self else {return}
+                
                 switch result{
                 
                 case .success(let fetchedPhotos):
                     print("HomeVC - getPhotos.success - fetchedPhotos.count : \(fetchedPhotos.count)")
                 case .failure(let error):
                     print("HomeVC - getPhotos.failure - error : \(error.rawValue)")
+                    self.view.makeToast(error.rawValue, duration: 3.0, position: .center)
                 }
             })
         case 1:
